@@ -1,0 +1,41 @@
+{{> menu}}
+<section class="ui segment">
+    <h2 class="ui header">
+        Personal Details
+    </h2>
+    <p>
+        First Name: {{firstName}}
+    </p>
+    <p>
+        Last Name: {{lastName}}
+    </p>
+    <p>
+        Email: {{email}}
+    </p>
+    <p>
+        Password: {{password}}
+    </p>
+</section>
+<form class="ui stacked segment form" action="/user" method="POST">
+    <div class="four fields">
+        <div class="field">
+            <label>Firstname</label>
+            <input placeholder="{{firstName}}" type="text" name="firstName">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="{{lastName}}" type="text"  name="lastName">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input placeholder="{{email}}" type="text" name="email">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input placeholder="{{password}}" type="text" name="password">
+        </div>
+    </div>
+  <section class="ui center aligned middle aligned segment">
+    <button class="ui green button">Edit User Details</button>
+    </section>
+</form>

@@ -1,0 +1,66 @@
+<div class="ui segment">
+    <div class="ui five inverted cards">
+        <div class="card">
+            <div class="content">
+              <h2 class="header">
+                {{station.title}} <i class="big violet marker icon"></i>
+              </h2> 
+                  <div class="description">
+                    <p>Lat: {{station.lat}}</p>
+                    <p>Lon: {{station.lng}}</p>
+                  </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+              <h2 class="header">
+                Weather <img src="{{station.latestIcon}}">
+              </h2>
+              <div class="description">
+                    <p>{{station.latestMain}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+              <div class="header">
+                Temp <i class="big blue temperature low icon"></i>
+              </div>
+                <div class="description">
+                  <p>{{station.temperature}} Cº</p>
+                  <p>{{station.temperatureF}} F</p>
+                  <p>Max: {{station.maxTemperature}} <i class="{{station.getTempTrend}}"></i> </p>
+                  <br>Min: {{station.minTemperature}}
+              </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+              <h2 class="header">
+                Wind <span><i class="big green wind icon"></i></span>
+              </h2>
+                <div class="description">
+                  <p>{{station.latestBft}} bft</p>
+                  <p>{{station.windCompass}}</p>
+                  <p>Feels like</p>
+                  <p>{{station.windChill}}Cº</p>
+                  <p>Max: {{station.maxWindSpeed}} <i class="{{station.getWindTrend}}"></i></p>
+                  <p>Min: {{station.minWindSpeed}} </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="content">
+                <div class="header">
+                Pressure <i class="big orange arrows alternate icon"></i>
+              </div>
+                <div class="description">
+                  <p>{{station.pressure}} hpa</p>
+                  <p>Max: {{station.maxPressure}} <i class="{{station.getPressureTrend}}"></i></p>
+                  <p>Min: {{station.minPressure}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

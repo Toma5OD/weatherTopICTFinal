@@ -1,0 +1,50 @@
+<script src="https://unpkg.com/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
+
+{{> menu}}
+<form class="ui stacked segment form" action="/station/{{station.id}}/addreading" method="POST">
+<section class="ui center aligned middle aligned segment">
+  {{> weather-report-ui}}
+  <body>
+    <div id="chart"></div>
+</body>
+  {{> listreadings}}
+</section>
+  <section class="ui center aligned middle aligned segment">
+<button class="ui centered red submit button">Auto Update Readings</button>
+    </section>
+</form>
+<form class="ui stacked segment form" action="/station/{{station.id}}/addreadingmanual" method="POST">
+{{> addreadings}}
+  <section class="ui center aligned middle aligned segment">
+  <button class="ui blue submit button">Manually Add Readings</button>
+    </section>
+  
+</form>
+
+<script type='text/javascript'>
+  
+  
+const data = {
+    labels: [{{#each station.readings}}"{{date}}", {{/each}}],
+    datasets: [
+        {
+            name: "Temperature", type: "line",
+            values: [{{#each station.readings}}{{temperature}}, {{/each}}]
+        },
+        // {
+        //     name: "Wind Speed", type: "line",
+        //     values: [{{#each station.readings}}{{windSpeed}}, {{/each}}]
+        // }
+    ]
+}
+
+const chart = new frappe.Chart("#chart", {  // or a DOM element,
+                                            // new Chart() in case of ES6 module with above usage
+    title: "Temperature Trend Chart",
+    data: data,
+    type: 'line', // or 'bar', 'line', 'scatter', 'pie', 'percentage'
+    height: 300,
+    colors: ['#DA70D6', '#DC143C']
+})
+</script>
+
